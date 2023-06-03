@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<TweetPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/tweets" element={<HomePage />} />
         <Route path="*" element={<RestrictedRoute redirectTo="/" />} />
       </Routes>
     </>
