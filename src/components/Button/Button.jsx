@@ -7,7 +7,7 @@ const Button = ({ text, changePage, view }) => {
   const style = view === 'back' ? css.back : css.loadMore;
 
   const goBack = () => {
-    navigate('/tweets');
+    navigate('/');
   };
 
   const handleClick = () => {
