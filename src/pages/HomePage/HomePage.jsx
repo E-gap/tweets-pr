@@ -1,5 +1,5 @@
 import css from './HomePage.module.css';
-
+import { NavLink } from 'react-router-dom';
 import picture from '../../images/picture-for-item.png';
 import user1 from '../../images/user1.jpg';
 import user2 from '../../images/user2.jpg';
@@ -12,9 +12,9 @@ const HomePage = () => {
   return (
     <div className={css.homePage}>
       <div className={css.container}>
-        <a href="/tweets-pr/tweets" className={css.moveToTweets}>
+        <NavLink to="/tweets" className={css.moveToTweets}>
           Go to Tweets
-        </a>
+        </NavLink>
         <img src={picture} alt="head" className={css.picture} />
         <img
           src={user1}
