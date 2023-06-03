@@ -13,7 +13,7 @@ const HomePage = () => {
     <div className={css.homePage}>
       <div className={css.container}>
         <NavLink to="/tweets" className={css.moveToTweets}>
-          Go to Tweets
+          Go to Tweetssss
         </NavLink>
         <img src={picture} alt="head" className={css.picture} />
         <img
