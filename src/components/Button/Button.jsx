@@ -1,17 +1,17 @@
-import PropTypes from "prop-types";
-import css from "./Button.module.css";
-import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
+import css from './Button.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Button = ({ text, changePage, view }) => {
   const navigate = useNavigate();
-  const style = view === "back" ? css.back : css.loadMore;
+  const style = view === 'back' ? css.back : css.loadMore;
 
   const goBack = () => {
-    navigate("/");
+    navigate('/home');
   };
 
   const handleClick = () => {
-    if (view === "back") {
+    if (view === 'back') {
       goBack();
     } else {
       changePage();
