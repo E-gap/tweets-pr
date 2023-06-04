@@ -8,44 +8,25 @@ import user4 from '../../images/user4.jpg';
 import user5 from '../../images/user5.jpg';
 import user6 from '../../images/user6.jpg';
 
+const users = [user1, user2, user3, user4, user5, user6];
+
 const HomePage = () => {
   return (
     <div className={css.homePage}>
       <div className={css.container}>
-        <NavLink to="/tweets" className={css.moveToTweets}>
-          Go to Tweets
-        </NavLink>
-        <img src={picture} alt="head" className={css.picture} />
-        <img
-          src={user1}
-          alt="auto"
-          className={`${css.photouser} ${css.photo1}`}
-        />
-        <img
-          src={user2}
-          alt="auto"
-          className={`${css.photouser} ${css.photo2}`}
-        />
-        <img
-          src={user3}
-          alt="auto"
-          className={`${css.photouser} ${css.photo3}`}
-        />
-        <img
-          src={user4}
-          alt="auto"
-          className={`${css.photouser} ${css.photo4}`}
-        />
-        <img
-          src={user5}
-          alt="auto"
-          className={`${css.photouser} ${css.photo5}`}
-        />
-        <img
-          src={user6}
-          alt="auto"
-          className={`${css.photouser} ${css.photo6}`}
-        />
+        <div className={css.linkPicture}>
+          <NavLink to="/tweets" className={css.moveToTweets}>
+            Go to Tweets
+          </NavLink>
+          <img src={picture} alt="head" className={css.picture} />
+        </div>
+        <ul className={css.listUser}>
+          {users.map((user, index) => (
+            <li key={index}>
+              <img src={user} alt="auto" className={css.photouser} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

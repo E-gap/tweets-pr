@@ -10,6 +10,7 @@
 .container {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 1200px;
@@ -22,6 +23,13 @@
     #5736a3 54.28%,
     #4b2a99 78.99%
   );
+}
+
+.linkPicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .moveToTweets {
@@ -39,30 +47,12 @@
   border-radius: 50%;
   height: 100px;
   width: 100px;
-  position: absolute;
 }
 
-.photo1 {
-  top: 100px;
-  left: 200px;
-}
-.photo2 {
-  top: 250px;
-  left: 200px;
-}
-.photo3 {
-  top: 400px;
-  left: 200px;
-}
-.photo4 {
-  top: 100px;
-  left: 900px;
-}
-.photo5 {
-  top: 250px;
-  left: 900px;
-}
-.photo6 {
-  top: 400px;
-  left: 900px;
+.listUser {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding-left: 0;
+  width: 70%;
 }
