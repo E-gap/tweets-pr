@@ -6,7 +6,9 @@
 Для ознайомлення та налаштування додаткових можливостей
 [звернись до документації](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## **_Опис застосунку_**
+---
+
+## **_Опис роботи застосунку_**
 
 Адреса застосунку - [e-gap.github.io/tweets-pr/](e-gap.github.io/tweets-pr/)
 
@@ -67,3 +69,11 @@
 
 Якщо кількість користувачів обраної категорії в базі даних дорівнює 0Ю то на
 екрані з'явиться текст повідомлення: ![NO USERS](./assets/no-users.jpg)
+
+---
+
+## **_Використані бібліотеки для створення застосунку_**
+
+[axios](https://axios-http.com/)
+[prop-types](https://github.com/facebook/prop-types)
+[react-router-dom](https://github.com/remix-run/react-router)
