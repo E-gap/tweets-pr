@@ -1,32 +1,32 @@
-import css from "./TweetPage.module.css";
-import ItemTweet from "../../components/ItemTweet/ItemTweet";
-import Button from "../../components/Button/Button";
-import Select from "../../components/Select/Select";
-import { useEffect, useState } from "react";
+import css from './TweetPage.module.css';
+import ItemTweet from '../../components/ItemTweet/ItemTweet';
+import Button from '../../components/Button/Button';
+import Select from '../../components/Select/Select';
+import { useEffect, useState } from 'react';
 import {
   fetchAllUsers,
   compareArray,
   getFromLocalStorage,
-} from "../../utils/operations";
+} from '../../utils/operations';
 
 const TweetPage = () => {
   const [finalArrayUsersVisible, setFinalArrayUsersVisible] = useState([]);
   const [totalAllUsers, setTotalAllUsers] = useState(0);
-  const [categoryUsers, setCategoryUsers] = useState("all");
+  const [categoryUsers, setCategoryUsers] = useState('all');
   const [page, setPage] = useState(1);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetchAllUsers()
-      .then((response) => {
-        if (response.statusText !== "OK") {
-          throw new Error("Server Error");
+      .then(response => {
+        if (response.statusText !== 'OK') {
+          throw new Error('Server Error');
         } else {
           const usersPerPage = 3;
           let endUserFromArray = usersPerPage * page;
           const followingUsers = getFromLocalStorage();
 
-          if (categoryUsers === "all") {
+          if (categoryUsers === 'all') {
             const finalArrayUsers = compareArray(response.data, followingUsers);
             const finalArrayUsersVisible = finalArrayUsers.slice(
               0,
@@ -34,10 +34,10 @@ const TweetPage = () => {
             );
             setFinalArrayUsersVisible(finalArrayUsersVisible);
             setTotalAllUsers(finalArrayUsers.length);
-          } else if (categoryUsers === "follow") {
+          } else if (categoryUsers === 'follow') {
             const finalArrayUsers = compareArray(response.data, followingUsers);
             const finalArrayUsersFollow = finalArrayUsers.filter(
-              (user) => user.follow === false
+              user => user.follow === false
             );
 
             const finalArrayUsersVisible = finalArrayUsersFollow.slice(
@@ -46,10 +46,10 @@ const TweetPage = () => {
             );
             setFinalArrayUsersVisible(finalArrayUsersVisible);
             setTotalAllUsers(finalArrayUsersFollow.length);
-          } else if (categoryUsers === "followings") {
+          } else if (categoryUsers === 'followings') {
             const finalArrayUsers = compareArray(response.data, followingUsers);
             const finalArrayUsersFollowings = finalArrayUsers.filter(
-              (user) => user.follow === true
+              user => user.follow === true
             );
 
             const finalArrayUsersVisible = finalArrayUsersFollowings.slice(
@@ -61,14 +61,14 @@ const TweetPage = () => {
           }
         }
       })
-      .catch((error) => setError(error.message));
+      .catch(error => setError(error.message));
   }, [page, categoryUsers]);
 
   const changePage = () => {
     setPage(page + 1);
   };
 
-  const handleSelect = (e) => {
+  const handleSelect = e => {
     setCategoryUsers(e);
     setPage(1);
   };
@@ -80,9 +80,10 @@ const TweetPage = () => {
           <Button text="BACK" view="back" />
           <Select handleSelect={handleSelect} />
         </div>
-        {!error ? (
+        {error ? <p className={css.error}>{error}</p> : ''}
+        {finalArrayUsersVisible.length > 0 ? (
           <ul className={css.userList}>
-            {finalArrayUsersVisible.map((user) => (
+            {finalArrayUsersVisible.map(user => (
               <ItemTweet
                 key={user.id}
                 tweets={user.tweets}
@@ -95,14 +96,16 @@ const TweetPage = () => {
             ))}
           </ul>
         ) : (
-          <p className={css.error}>{error}</p>
+          <p className={css.notItemsByCategory}>
+            There aren't any selected users
+          </p>
         )}
 
         {finalArrayUsersVisible.length > 0 &&
         finalArrayUsersVisible.length < totalAllUsers ? (
           <Button text="LOAD MORE" changePage={changePage} view="loadMore" />
         ) : (
-          ""
+          ''
         )}
       </div>
     </div>
