@@ -6,7 +6,8 @@
   padding-bottom: 8px;
 }
 
-.loadMore:hover {
+.loadMore:hover,
+.loadMore:focus {
   background-color: chartreuse;
 }
 
@@ -21,7 +22,8 @@
   margin-right: 30px;
 }
 
-.back:hover {
+.back:hover,
+.back:focus {
   background-color: yellow;
   color: #000000;
 }

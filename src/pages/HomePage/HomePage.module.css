@@ -39,7 +39,8 @@
   text-decoration: none;
 }
 
-.moveToTweets:hover {
+.moveToTweets:hover,
+.moveToTweets:focus {
   color: magenta;
 }
 
