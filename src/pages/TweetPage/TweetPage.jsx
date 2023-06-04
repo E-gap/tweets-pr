@@ -18,6 +18,7 @@ const TweetPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setError('');
     fetchAllUsers()
       .then(response => {
         setIsLoading(false);
@@ -100,7 +101,7 @@ const TweetPage = () => {
               />
             ))}
           </ul>
-        ) : !isLoading ? (
+        ) : !isLoading && !error ? (
           <p className={css.notItemsByCategory}>
             There aren't any selected users
           </p>
