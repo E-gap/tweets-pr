@@ -36,14 +36,14 @@
 Якщо ми хочемо стати підписником (або перестати бути) підписником конкретного
 користувача, нам слід натичнути кнопку `«FOLLOW»`
 ![BUTTON FOLLOW](./assets/button-follow.jpg) (або `«FOLLOWING»`)
-![BUTTON FOLLOWING](./assets/button-following.jpg).
+![BUTTON FOLLOWING](./assets/button-following.jpg)
 
 Якщо ми стаєм підписником користувача, то в його картці збільшується кількість
 підписників на 1. Якщо відписуємся від користувача - то в його картці
 зменшується кількість підписників на 1.
 
 Також на сторінці [Tweets](https://e-gap.github.io/tweets-pr/tweets) у лівому
-верхнбому куті є кнопка `«BACK»`, ![BUTTON BACK](./assets/button-back.jpg),
+верхньому куті є кнопка `«BACK»`, ![BUTTON BACK](./assets/button-back.jpg)
 натиснувши на яку, ми переходимо на сторінку
 [Home](https://e-gap.github.io/tweets-pr/).
 
