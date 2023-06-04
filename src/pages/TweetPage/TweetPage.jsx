@@ -15,10 +15,12 @@ const TweetPage = () => {
   const [categoryUsers, setCategoryUsers] = useState('all');
   const [page, setPage] = useState(1);
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchAllUsers()
       .then(response => {
+        setIsLoading(false);
         if (response.statusText !== 'OK') {
           throw new Error('Server Error');
         } else {
@@ -61,7 +63,10 @@ const TweetPage = () => {
           }
         }
       })
-      .catch(error => setError(error.message));
+      .catch(error => {
+        setIsLoading(false);
+        setError(error.message);
+      });
   }, [page, categoryUsers]);
 
   const changePage = () => {
@@ -95,10 +100,12 @@ const TweetPage = () => {
               />
             ))}
           </ul>
-        ) : (
+        ) : !isLoading ? (
           <p className={css.notItemsByCategory}>
             There aren't any selected users
           </p>
+        ) : (
+          ''
         )}
 
         {finalArrayUsersVisible.length > 0 &&
